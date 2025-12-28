@@ -1,4 +1,4 @@
-import java.util.HashMap;
+import java.util.HashSet;
 
 public class missingNumber {
     public static void main(String[] args){
@@ -7,16 +7,15 @@ public class missingNumber {
     }
 
     public static int solution(int[] nums){        
-        HashMap<Integer, Integer> set = new HashMap<>();
+        HashSet<Integer> set = new HashSet<>();
         int value = 0;
 
         for(int i = 0; i < nums.length; i++){
-            set.put(i, nums[i]);
+            set.add(nums[i]);
         }
 
         for(int i = 0; i < nums.length; i++){            
-            if(!set.containsValue(i)){
-                System.out.println("¡FALSE! NO CONTIENE " + i);
+            if(!set.contains(i)){                
                 value = i;
                 break;
             }
